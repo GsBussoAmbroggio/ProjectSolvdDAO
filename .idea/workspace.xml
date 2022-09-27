@@ -4,49 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45dd47c3-ae31-414d-aba8-c159c969759e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLAccountDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLAccount_transDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLBranchDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLBusinessDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLCustomerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLDepartmentDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLEmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLIndividualDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLOfficerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLProductTypeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IAccountDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IAccount_transDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IBranchDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IBusinessDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ICustomerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IDepartmentDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IEmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IIndividualDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IOfficerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IProductTypeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Account_trans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Branch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Business.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Individual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Officer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/ProductType.java" afterDir="false" />
+    <list default="true" id="45dd47c3-ae31-414d-aba8-c159c969759e" name="Changes" comment="26/09/2022">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLIndividualDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLIndividualDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,9 +47,22 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.main">
+    <configuration name="MySQLIndividualDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Services.MySQLIndividualDAO" />
+      <module name="ConnectionsJDBC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main" />
+      <option name="MAIN_CLASS_NAME" value="main.main" />
       <module name="ConnectionsJDBC" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,6 +71,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.main" />
+        <item itemvalue="Application.MySQLIndividualDAO" />
       </list>
     </recent_temporary>
   </component>
@@ -110,6 +84,14 @@
       <option name="presentableId" value="Default" />
       <updated>1663032063394</updated>
     </task>
+    <task id="LOCAL-00001" summary="26/09/2022">
+      <created>1664246634766</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664246634766</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,5 +104,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="26/09/2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="26/09/2022" />
   </component>
 </project>

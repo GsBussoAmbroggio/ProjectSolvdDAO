@@ -6,29 +6,26 @@ import models.Department;
 import models.Employee;
 import models.Individual;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class MySQLIndividualDAO implements IIndividualDAO {
     //--------------------------------------------------CRUD------------------------------------------------------------
-    final String INSERT = "INSERT INTO individual (BIRTH_DATE,FIRST_NAME,LAST_NAME,CUST_ID) VALUES (?,?,?,?)";
-    final String UPDATE = "UPDATE individual SET BIRTH_DATE=?,FIRST_NAME=?,LAST_NAME=?,CUST_ID=?";
+    final String INSERT = "INSERT INTO individual (BIRTH_DATE,FIRST_NAME,LAST_NAME,customer_CUST_ID) VALUES (?,?,?,?)";
+    final String UPDATE = "UPDATE individual SET BIRTH_DATE=?,FIRST_NAME=?,LAST_NAME=?,customer_CUST_ID=?";
     final String DELETE = "DELETE FROM individual WHERE BIRTH_DATE=?";
-    final String GETALL = "SELECT BIRTH_DATE,FIRST_NAME,LAST_NAME,CUST_ID FROM individual";
-    final String GETONE = "SELECT BIRTH_DATE,FIRST_NAME,LAST_NAME,CUST_ID FROM individual WHERE BIRTH_DATE=?";
+    final String GETALL = "SELECT BIRTH_DATE,FIRST_NAME,LAST_NAME,customer_CUST_ID FROM individual";
+    final String GETONE = "SELECT BIRTH_DATE,FIRST_NAME,LAST_NAME,customer_CUST_ID FROM individual WHERE BIRTH_DATE=?";
 
     /* ATTRIBUTES */ private Connection conn;
     /* CASTING */ private Individual casting(ResultSet rs)throws SQLException {
         Date BIRTH_DATE = rs.getDate("BIRTH_DATE");
         String FIRST_NAME = rs.getString("FIRST_NAME");
         String LAST_NAME = rs.getString("LAST_NAME");
-        Long CUST_ID = rs.getLong("CUST_ID");
-        Individual i = new Individual(BIRTH_DATE,FIRST_NAME,LAST_NAME,CUST_ID);
+        Long customer_CUST_ID = rs.getLong("customer_CUST_ID");
+        Individual i = new Individual(BIRTH_DATE,FIRST_NAME,LAST_NAME,customer_CUST_ID);
         i.setBirthDate(rs.getDate("BIRTH_DATE"));
         return i;
     }
@@ -197,4 +194,4 @@ public class MySQLIndividualDAO implements IIndividualDAO {
         }
         return individual;
     }
-}
+    }
