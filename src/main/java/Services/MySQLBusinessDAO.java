@@ -25,12 +25,9 @@ public class MySQLBusinessDAO implements IBusinessDAO {
         String NAME = rs.getString("NAME");
         String STATE_ID = rs.getString("STATE_ID");
         Long customer_CUST_ID = rs.getLong("customer_CUST_ID");
-
         Business b = new Business(INCORP_DATE,NAME,STATE_ID,customer_CUST_ID);
         b.setIncorpDate((rs.getDate("INCORP_DATE")));
         return b;
-
-
     }
 
     /* CONNECTION */public MySQLBusinessDAO(Connection conn){
