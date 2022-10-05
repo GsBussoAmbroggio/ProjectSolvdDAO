@@ -3,7 +3,7 @@ package models;
 import java.util.Date;
 import java.util.Objects;
 
-public class Business {
+public class Business extends AbstractEntity {
 //Fields
 private Date incorpDate;
 private String name;

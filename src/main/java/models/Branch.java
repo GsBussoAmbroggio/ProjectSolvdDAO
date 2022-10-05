@@ -2,9 +2,8 @@ package models;
 
 import java.util.Objects;
 
-public class Branch {
+public class Branch extends AbstractEntity {
 //Fields
-    private Long branchID;
     private String address;
     private String name;
     private String city;
@@ -12,8 +11,8 @@ public class Branch {
     private String zipCode;
 
 //Constructors
-    public Branch(Long branchID, String address, String name, String city, String state, String zipCode) {
-        this.branchID = branchID;
+    public Branch(Long id, String address, String name, String city, String state, String zipCode) {
+        super(id);
         this.address = address;
         this.name = name;
         this.city = city;
@@ -27,16 +26,16 @@ public class Branch {
         if (this == o) return true;
         if (!(o instanceof Branch)) return false;
         Branch branch = (Branch) o;
-        return Objects.equals(branchID, branch.branchID) && Objects.equals(address, branch.address) && Objects.equals(name, branch.name) && Objects.equals(city, branch.city) && Objects.equals(state, branch.state) && Objects.equals(zipCode, branch.zipCode);
+        return Objects.equals(id, branch.id) && Objects.equals(address, branch.address) && Objects.equals(name, branch.name) && Objects.equals(city, branch.city) && Objects.equals(state, branch.state) && Objects.equals(zipCode, branch.zipCode);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(branchID, address, name, city, state, zipCode);
+        return Objects.hash(id, address, name, city, state, zipCode);
     }
     @Override
     public String toString() {
         return "branch{" +
-                "branchID=" + branchID +
+                "id=" + id +
                 ", address='" + address + '\'' +
                 ", name='" + name + '\'' +
                 ", city='" + city + '\'' +
@@ -48,10 +47,10 @@ public class Branch {
 //Getters & Setters
 
     public Long getBranchID() {
-        return branchID;
+        return id;
     }
-    public void setBranchID(Long branchID) {
-        this.branchID = branchID;
+    public void setBranchID(Long id) {
+        this.id = id;
     }
     public String getAddress() {
         return address;

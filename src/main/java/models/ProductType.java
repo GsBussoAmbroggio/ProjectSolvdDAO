@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public class ProductType {
+public class ProductType extends AbstractEntity  {
 //Fields
 private String productType;
 private String name;

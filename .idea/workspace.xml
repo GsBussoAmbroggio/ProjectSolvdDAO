@@ -4,7 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45dd47c3-ae31-414d-aba8-c159c969759e" name="Changes" comment="28/09/2022  UPDATE" />
+    <list default="true" id="45dd47c3-ae31-414d-aba8-c159c969759e" name="Changes" comment="04/10/2022  UPDATE SERVICES">
+      <change afterPath="$PROJECT_DIR$/.idea/mybatisbuilder.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mapper/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mapper/AccountMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/AccountExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/AbstractEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/AccountMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLAccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLAccount_transDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLAccount_transDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLBranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLBranchDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLBusinessDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLBusinessDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLCustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLCustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLDepartmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLDepartmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLEmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLEmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLIndividualDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLIndividualDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLOfficerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLOfficerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MySQLProductTypeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MySQLProductTypeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IAccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IAccount_transDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IAccount_transDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IBranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IBranchDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IBusinessDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IBusinessDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ICustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ICustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IDepartmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IDepartmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IEmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IEmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IIndividualDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IIndividualDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IOfficerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IOfficerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IProductTypeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IProductTypeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Account_trans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Account_trans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Officer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Officer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/ProductType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ProductType.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,26 +73,40 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2EgzYED9T5p6lUm1cz32slmj1NW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/BACK HOME-M1 23-09-2022/IdeaProjects/ConnectionsJDBC&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/mybatis-3.5.11" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.647541" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\santi\IdeaProjects\ProjectSolvdDAO\src\main" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="LibraryJava" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MySQLIndividualDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Services.MySQLIndividualDAO" />
       <module name="ConnectionsJDBC" />
@@ -58,16 +120,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.main" />
-      <module name="ConnectionsJDBC" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.MySQLIndividualDAO" />
       </list>
     </recent_temporary>
@@ -115,11 +170,19 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="26/09/2022" />
     <MESSAGE value="27/09/2022  first hour in the morning" />
     <MESSAGE value="28/09/2022  UPDATE" />
-    <option name="LAST_COMMIT_MESSAGE" value="28/09/2022  UPDATE" />
+    <MESSAGE value="29/09/2022  UPDATE" />
+    <MESSAGE value="04/10/2022  UPDATE SERVICES" />
+    <option name="LAST_COMMIT_MESSAGE" value="04/10/2022  UPDATE SERVICES" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

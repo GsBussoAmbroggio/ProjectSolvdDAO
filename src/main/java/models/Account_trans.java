@@ -3,9 +3,7 @@ package models;
 import java.util.Date;
 import java.util.Objects;
 
-public class Account_trans {
-//Fields
-private Long txnID;
+public class Account_trans extends AbstractEntity {
 private Double amount;
 private Date fundsAvailDate;
 private Date txnDate;
@@ -14,9 +12,8 @@ private Long accountID;
 private Long executionBranchID;
 private Long tellerEmpID;
 
-//Constructors
-    public Account_trans(Long txnID, Double amount, Date fundsAvailDate, Date txnDate, String txnTypeCD, Long accountID, Long executionBranchID, Long tellerEmpID) {
-        this.txnID = txnID;
+    public Account_trans(Long id, Double amount, Date fundsAvailDate, Date txnDate, String txnTypeCD, Long accountID, Long executionBranchID, Long tellerEmpID) {
+        super(id);
         this.amount = amount;
         this.fundsAvailDate = fundsAvailDate;
         this.txnDate = txnDate;
@@ -26,22 +23,21 @@ private Long tellerEmpID;
         this.tellerEmpID = tellerEmpID;
     }
 
-//HashCode-Equals & toString
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Account_trans)) return false;
         Account_trans that = (Account_trans) o;
-        return Objects.equals(txnID, that.txnID) && Objects.equals(amount, that.amount) && Objects.equals(fundsAvailDate, that.fundsAvailDate) && Objects.equals(txnDate, that.txnDate) && Objects.equals(txnTypeCD, that.txnTypeCD) && Objects.equals(accountID, that.accountID) && Objects.equals(executionBranchID, that.executionBranchID) && Objects.equals(tellerEmpID, that.tellerEmpID);
+        return Objects.equals(id, that.id) && Objects.equals(amount, that.amount) && Objects.equals(fundsAvailDate, that.fundsAvailDate) && Objects.equals(txnDate, that.txnDate) && Objects.equals(txnTypeCD, that.txnTypeCD) && Objects.equals(accountID, that.accountID) && Objects.equals(executionBranchID, that.executionBranchID) && Objects.equals(tellerEmpID, that.tellerEmpID);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(txnID, amount, fundsAvailDate, txnDate, txnTypeCD, accountID, executionBranchID, tellerEmpID);
+        return Objects.hash(id, amount, fundsAvailDate, txnDate, txnTypeCD, accountID, executionBranchID, tellerEmpID);
     }
     @Override
     public String toString() {
         return "account_trans{" +
-                "txnID=" + txnID +
+                "id=" + id +
                 ", amount=" + amount +
                 ", fundsAvailDate=" + fundsAvailDate +
                 ", txnDate=" + txnDate +
@@ -52,13 +48,11 @@ private Long tellerEmpID;
                 '}';
     }
 
-//Getters & Setters
-
     public Long getTxnID() {
-        return txnID;
+        return id;
     }
-    public void setTxnID(Long txnID) {
-        this.txnID = txnID;
+    public void setTxnID(Long id) {
+        this.id = id;
     }
     public Double getAmount() {
         return amount;

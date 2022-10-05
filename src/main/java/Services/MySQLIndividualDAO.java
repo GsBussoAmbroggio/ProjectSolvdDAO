@@ -39,17 +39,23 @@ public class MySQLIndividualDAO implements IIndividualDAO {
     @Override
     public void insert(Individual i) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
-            stat.setDate(1, (java.sql.Date) i.getBirthDate());
-            stat.setString(2,i.getFirstName());
-            stat.setString(3,i.getLastName());
-            stat.setLong(4, i.getCustID());
+            stat.setString(1,i.getFirstName());
+            stat.setString(2,i.getLastName());
+            stat.setLong(3, i.getCustID());
 
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                i.setBirthDate(rs.getDate(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -68,16 +74,22 @@ public class MySQLIndividualDAO implements IIndividualDAO {
     @Override
     public void modify(Individual i) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
-            stat.setDate(1, (java.sql.Date) i.getBirthDate());
-            stat.setString(2,i.getFirstName());
-            stat.setString(3,i.getLastName());
-            stat.setLong(4, i.getCustID());
+            stat.setString(1,i.getFirstName());
+            stat.setString(2,i.getLastName());
+            stat.setLong(3, i.getCustID());
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                i.setBirthDate(rs.getDate(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -96,15 +108,21 @@ public class MySQLIndividualDAO implements IIndividualDAO {
     @Override
     public void delete(Individual i) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setDate(1, (java.sql.Date) i.getBirthDate());
-            stat.setString(2,i.getFirstName());
-            stat.setString(3,i.getLastName());
-            stat.setLong(4, i.getCustID());
+            stat.setString(1,i.getFirstName());
+            stat.setString(2,i.getLastName());
+            stat.setLong(3, i.getCustID());
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                i.setBirthDate(rs.getDate(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

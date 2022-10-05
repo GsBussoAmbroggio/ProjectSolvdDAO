@@ -2,10 +2,10 @@ package models;
 import java.util.Date;
 import java.util.Objects;
 
-public class Employee{
+public class Employee extends AbstractEntity {
 
 //Fields
-    private Long ID = null;
+    private Long ID;
     private String firstName;
     private String lastName;
     private Date startDate;

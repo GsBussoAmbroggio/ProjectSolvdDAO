@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MySQLBusinessDAO implements IBusinessDAO {
     //--------------------------------------------------CRUD------------------------------------------------------------
-    final String INSERT = "INSERT INTO business (INCORP_DATE,NAME,STATE_ID,customer_CUST_ID) VALUES (?,?,?,?)";
+    final String INSERT = "INSERT INTO business (NAME,STATE_ID,customer_CUST_ID) VALUES (?,?,?,?)";
     final String UPDATE = "UPDATE business SET INCORP_DATE=?,NAME=?,STATE_ID=?,customer_CUST_ID=?";
     final String DELETE = "DELETE FROM business WHERE INCORP_DATE=?";
     final String GETALL = "SELECT INCORP_DATE,NAME,STATE_ID,customer_CUST_ID FROM business";
@@ -39,15 +39,21 @@ public class MySQLBusinessDAO implements IBusinessDAO {
     @Override
     public void insert(Business b) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
-            stat.setDate(1, (Date) b.getIncorpDate());
-            stat.setString(2,b.getName());
-            stat.setString(3,b.getState());
-            stat.setLong(4,b.getCustID());
+            stat.setString(1,b.getName());
+            stat.setString(2,b.getState());
+            stat.setLong(3,b.getCustID());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                b.setIncorpDate(rs.getDate(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -66,16 +72,23 @@ public class MySQLBusinessDAO implements IBusinessDAO {
     @Override
     public void modify(Business b) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
-            stat.setDate(1, (Date) b.getIncorpDate());
-            stat.setString(2,b.getName());
-            stat.setString(3,b.getState());
-            stat.setLong(4,b.getCustID());
+            stat.setString(1,b.getName());
+            stat.setString(2,b.getState());
+            stat.setLong(3,b.getCustID());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
             }
+            if (rs.next()){
+                b.setIncorpDate(rs.getDate(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
+            }
+
 
         }catch (SQLException ex){
             throw new DAOException("Error in SQL", ex);
@@ -93,15 +106,21 @@ public class MySQLBusinessDAO implements IBusinessDAO {
     @Override
     public void delete(Business b) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setDate(1, (Date) b.getIncorpDate());
-            stat.setString(2,b.getName());
-            stat.setString(3,b.getState());
-            stat.setLong(4,b.getCustID());
+            stat.setString(1,b.getName());
+            stat.setString(2,b.getState());
+            stat.setLong(3,b.getCustID());
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                b.setIncorpDate(rs.getDate(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

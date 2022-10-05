@@ -12,7 +12,7 @@ import java.util.List;
 
 public class MySQLCustomerDAO implements ICustomerDAO {
     //--------------------------------------------------CRUD------------------------------------------------------------
-    final String INSERT = "INSERT INTO customer (CUST_ID,ADDRESS,CITY,STATE,POSTAL_CODE,OCUPATION,CUST_TYPE_CD) VALUES (?,?,?,?,?,?,?)";
+    final String INSERT = "INSERT INTO customer (ADDRESS,CITY,STATE,POSTAL_CODE,OCUPATION,CUST_TYPE_CD) VALUES (?,?,?,?,?,?,?)";
     final String UPDATE = "UPDATE customer SET CUST_ID=?,ADDRESS=?,CITY=?,STATE=?,POSTAL_CODE=?,OCUPATION=?,CUST_TYPE_CD=?";
     final String DELETE = "DELETE FROM customer WHERE INCORP_DATE=?";
     final String GETALL = "SELECT CUST_ID,ADDRESS,CITY,STATE,POSTAL_CODE,OCUPATION,CUST_TYPE_CD FROM customer";
@@ -44,18 +44,24 @@ public class MySQLCustomerDAO implements ICustomerDAO {
     @Override
     public void insert(Customer c) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, c.getCustID());
-            stat.setString(2,c.getAddress());
-            stat.setString(3,c.getCity());
-            stat.setString(4,c.getState());
-            stat.setString(5,c.getPostalCode());
-            stat.setString(6,c.getOcupation());
-            stat.setString(7,c.getCustType());
+            stat.setString(1,c.getAddress());
+            stat.setString(2,c.getCity());
+            stat.setString(3,c.getState());
+            stat.setString(4,c.getPostalCode());
+            stat.setString(5,c.getOcupation());
+            stat.setString(6,c.getCustType());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                c.setCustID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -74,18 +80,24 @@ public class MySQLCustomerDAO implements ICustomerDAO {
     @Override
     public void modify(Customer c) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, c.getCustID());
-            stat.setString(2,c.getAddress());
-            stat.setString(3,c.getCity());
-            stat.setString(4,c.getState());
-            stat.setString(5,c.getPostalCode());
-            stat.setString(6,c.getOcupation());
-            stat.setString(7,c.getCustType());
+            stat.setString(1,c.getAddress());
+            stat.setString(2,c.getCity());
+            stat.setString(3,c.getState());
+            stat.setString(4,c.getPostalCode());
+            stat.setString(5,c.getOcupation());
+            stat.setString(6,c.getCustType());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                c.setCustID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -104,9 +116,9 @@ public class MySQLCustomerDAO implements ICustomerDAO {
     @Override
     public void delete(Customer c) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, c.getCustID());
             stat.setString(2,c.getAddress());
             stat.setString(3,c.getCity());
             stat.setString(4,c.getState());
@@ -116,6 +128,12 @@ public class MySQLCustomerDAO implements ICustomerDAO {
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                c.setCustID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -184,6 +202,7 @@ public class MySQLCustomerDAO implements ICustomerDAO {
             }else {
                 throw new DAOException("record not found");
             }
+
         }catch (SQLException ex) {
             throw new DAOException( "ERROR in SQL", ex);
 

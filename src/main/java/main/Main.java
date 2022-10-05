@@ -14,21 +14,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-public class main {
-    public static void main (String [] args) throws SQLException,DAOException{
+public class Main {
+    public static void main (String [] args) throws SQLException, DAOException{
         Connection conn = null;
-        try {//Database logical
+        try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","Solvd2022");
             IIndividualDAO dao = new MySQLIndividualDAO(conn);
 
             List<Individual> individualList = dao.GetAll();
             for (Individual a : individualList  ){
                 System.out.println(a.toString());
-
             }
             System.out.println("i`m in");
-
-            /*Except*/  } finally {
+        } finally {
             if (conn!=null);{
                 conn.close();
             }

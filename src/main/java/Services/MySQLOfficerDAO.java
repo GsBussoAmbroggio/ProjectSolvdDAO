@@ -44,18 +44,24 @@ public class MySQLOfficerDAO implements IOfficerDAO {
     @Override
     public void insert(Officer o) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, o.getOfficerID());
-            stat.setDate(2, (java.sql.Date) o.getEndDate());
-            stat.setString(3,o.getFirstName());
-            stat.setString(4,o.getLastName());
-            stat.setDate(5, (java.sql.Date) o.getStartDate());
-            stat.setString(6,o.getTitle());
-            stat.setLong(7,o.getCustID());
+            stat.setDate(1, (java.sql.Date) o.getEndDate());
+            stat.setString(2,o.getFirstName());
+            stat.setString(3,o.getLastName());
+            stat.setDate(4, (java.sql.Date) o.getStartDate());
+            stat.setString(5,o.getTitle());
+            stat.setLong(6,o.getCustID());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                o.setOfficerID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -70,21 +76,28 @@ public class MySQLOfficerDAO implements IOfficerDAO {
             }
         }
     }
+    //TODO data set
     @Override
     public void modify(Officer o) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, o.getOfficerID());
-            stat.setDate(2, (java.sql.Date) o.getEndDate());
-            stat.setString(3,o.getFirstName());
-            stat.setString(4,o.getLastName());
-            stat.setDate(5, (java.sql.Date) o.getStartDate());
-            stat.setString(6,o.getTitle());
-            stat.setLong(7,o.getCustID());
+            stat.setDate(1, (java.sql.Date) o.getEndDate());
+            stat.setString(2,o.getFirstName());
+            stat.setString(3,o.getLastName());
+            stat.setDate(4, (java.sql.Date) o.getStartDate());
+            stat.setString(5,o.getTitle());
+            stat.setLong(6,o.getCustID());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                o.setOfficerID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -99,20 +112,27 @@ public class MySQLOfficerDAO implements IOfficerDAO {
             }
         }
     }
+    //TODO data set
     @Override
     public void delete(Officer o) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, o.getOfficerID());
-            stat.setDate(2, (java.sql.Date) o.getEndDate());
-            stat.setString(3,o.getFirstName());
-            stat.setString(4,o.getLastName());
-            stat.setDate(5, (java.sql.Date) o.getStartDate());
-            stat.setString(6,o.getTitle());
-            stat.setLong(7,o.getCustID());
+            stat.setDate(1, (java.sql.Date) o.getEndDate());
+            stat.setString(2,o.getFirstName());
+            stat.setString(3,o.getLastName());
+            stat.setDate(4, (java.sql.Date) o.getStartDate());
+            stat.setString(5,o.getTitle());
+            stat.setLong(6,o.getCustID());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                o.setOfficerID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

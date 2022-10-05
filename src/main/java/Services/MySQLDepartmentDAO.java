@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MySQLDepartmentDAO implements IDepartmentDAO {
     //--------------------------------------------------CRUD------------------------------------------------------------
-    final String INSERT = "INSERT INTO departament (DEPT_ID,NAME) VALUES (?,?)";
+    final String INSERT = "INSERT INTO departament (NAME) VALUES (?,?)";
     final String UPDATE = "UPDATE departament SET DEPT_ID=?,NAME=?";
     final String DELETE = "DELETE FROM departament WHERE DEPT_ID=?";
     final String GETALL = "SELECT DEPT_ID,NAME FROM departament";
@@ -39,14 +39,20 @@ public class MySQLDepartmentDAO implements IDepartmentDAO {
     @Override
     public void insert(Department d) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, d.getID());
-            stat.setString(2,d.getName());
+            stat.setString(1,d.getName());
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                d.setID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -65,6 +71,7 @@ public class MySQLDepartmentDAO implements IDepartmentDAO {
     @Override
     public void modify(Department d) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
@@ -72,6 +79,12 @@ public class MySQLDepartmentDAO implements IDepartmentDAO {
             stat.setString(2,d.getName());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                d.setID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -90,12 +103,19 @@ public class MySQLDepartmentDAO implements IDepartmentDAO {
     @Override
     public void delete(Department d) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
             stat.setLong(1, d.getID());
             stat.setString(2,d.getName());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                d.setID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

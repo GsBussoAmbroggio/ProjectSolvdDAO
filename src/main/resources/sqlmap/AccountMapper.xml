@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="model.Account">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <id column="ACCOUNT_ID" jdbcType="INTEGER" property="accountId" />
+    <result column="AVAIL_BALANCE" jdbcType="REAL" property="availBalance" />
+    <result column="PENDING_BALANCE" jdbcType="REAL" property="pendingBalance" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="OPEN_DATE" jdbcType="DATE" property="openDate" />
+    <result column="LAST_ACTIVITY_DATE" jdbcType="DATE" property="lastActivityDate" />
+    <result column="CLOSE_DATE" jdbcType="DATE" property="closeDate" />
+    <result column="customer_CUST_ID" jdbcType="INTEGER" property="customerCustId" />
+    <result column="branch_BRANCH_ID" jdbcType="INTEGER" property="branchBranchId" />
+    <result column="employee_EMP_ID" jdbcType="INTEGER" property="employeeEmpId" />
+    <result column="product_PRODUCT_CD" jdbcType="VARCHAR" property="productProductCd" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    ACCOUNT_ID, AVAIL_BALANCE, PENDING_BALANCE, `STATUS`, OPEN_DATE, LAST_ACTIVITY_DATE, 
+    CLOSE_DATE, customer_CUST_ID, branch_BRANCH_ID, employee_EMP_ID, product_PRODUCT_CD
+  </sql>
+  <select id="selectByExample" parameterType="model.AccountExample" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select 
+    <include refid="Base_Column_List" />
+    from account
+    where ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    delete from account
+    where ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="model.AccountExample">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    delete from account
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="model.Account">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into account (ACCOUNT_ID, AVAIL_BALANCE, PENDING_BALANCE, 
+      `STATUS`, OPEN_DATE, LAST_ACTIVITY_DATE, 
+      CLOSE_DATE, customer_CUST_ID, branch_BRANCH_ID, 
+      employee_EMP_ID, product_PRODUCT_CD)
+    values (#{accountId,jdbcType=INTEGER}, #{availBalance,jdbcType=REAL}, #{pendingBalance,jdbcType=REAL}, 
+      #{status,jdbcType=VARCHAR}, #{openDate,jdbcType=DATE}, #{lastActivityDate,jdbcType=DATE}, 
+      #{closeDate,jdbcType=DATE}, #{customerCustId,jdbcType=INTEGER}, #{branchBranchId,jdbcType=INTEGER}, 
+      #{employeeEmpId,jdbcType=INTEGER}, #{productProductCd,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="model.Account">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    insert into account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        ACCOUNT_ID,
+      </if>
+      <if test="availBalance != null">
+        AVAIL_BALANCE,
+      </if>
+      <if test="pendingBalance != null">
+        PENDING_BALANCE,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+      <if test="openDate != null">
+        OPEN_DATE,
+      </if>
+      <if test="lastActivityDate != null">
+        LAST_ACTIVITY_DATE,
+      </if>
+      <if test="closeDate != null">
+        CLOSE_DATE,
+      </if>
+      <if test="customerCustId != null">
+        customer_CUST_ID,
+      </if>
+      <if test="branchBranchId != null">
+        branch_BRANCH_ID,
+      </if>
+      <if test="employeeEmpId != null">
+        employee_EMP_ID,
+      </if>
+      <if test="productProductCd != null">
+        product_PRODUCT_CD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="availBalance != null">
+        #{availBalance,jdbcType=REAL},
+      </if>
+      <if test="pendingBalance != null">
+        #{pendingBalance,jdbcType=REAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null">
+        #{openDate,jdbcType=DATE},
+      </if>
+      <if test="lastActivityDate != null">
+        #{lastActivityDate,jdbcType=DATE},
+      </if>
+      <if test="closeDate != null">
+        #{closeDate,jdbcType=DATE},
+      </if>
+      <if test="customerCustId != null">
+        #{customerCustId,jdbcType=INTEGER},
+      </if>
+      <if test="branchBranchId != null">
+        #{branchBranchId,jdbcType=INTEGER},
+      </if>
+      <if test="employeeEmpId != null">
+        #{employeeEmpId,jdbcType=INTEGER},
+      </if>
+      <if test="productProductCd != null">
+        #{productProductCd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="model.AccountExample" resultType="java.lang.Long">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select count(*) from account
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update account
+    <set>
+      <if test="row.accountId != null">
+        ACCOUNT_ID = #{row.accountId,jdbcType=INTEGER},
+      </if>
+      <if test="row.availBalance != null">
+        AVAIL_BALANCE = #{row.availBalance,jdbcType=REAL},
+      </if>
+      <if test="row.pendingBalance != null">
+        PENDING_BALANCE = #{row.pendingBalance,jdbcType=REAL},
+      </if>
+      <if test="row.status != null">
+        `STATUS` = #{row.status,jdbcType=VARCHAR},
+      </if>
+      <if test="row.openDate != null">
+        OPEN_DATE = #{row.openDate,jdbcType=DATE},
+      </if>
+      <if test="row.lastActivityDate != null">
+        LAST_ACTIVITY_DATE = #{row.lastActivityDate,jdbcType=DATE},
+      </if>
+      <if test="row.closeDate != null">
+        CLOSE_DATE = #{row.closeDate,jdbcType=DATE},
+      </if>
+      <if test="row.customerCustId != null">
+        customer_CUST_ID = #{row.customerCustId,jdbcType=INTEGER},
+      </if>
+      <if test="row.branchBranchId != null">
+        branch_BRANCH_ID = #{row.branchBranchId,jdbcType=INTEGER},
+      </if>
+      <if test="row.employeeEmpId != null">
+        employee_EMP_ID = #{row.employeeEmpId,jdbcType=INTEGER},
+      </if>
+      <if test="row.productProductCd != null">
+        product_PRODUCT_CD = #{row.productProductCd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update account
+    set ACCOUNT_ID = #{row.accountId,jdbcType=INTEGER},
+      AVAIL_BALANCE = #{row.availBalance,jdbcType=REAL},
+      PENDING_BALANCE = #{row.pendingBalance,jdbcType=REAL},
+      `STATUS` = #{row.status,jdbcType=VARCHAR},
+      OPEN_DATE = #{row.openDate,jdbcType=DATE},
+      LAST_ACTIVITY_DATE = #{row.lastActivityDate,jdbcType=DATE},
+      CLOSE_DATE = #{row.closeDate,jdbcType=DATE},
+      customer_CUST_ID = #{row.customerCustId,jdbcType=INTEGER},
+      branch_BRANCH_ID = #{row.branchBranchId,jdbcType=INTEGER},
+      employee_EMP_ID = #{row.employeeEmpId,jdbcType=INTEGER},
+      product_PRODUCT_CD = #{row.productProductCd,jdbcType=VARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Account">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update account
+    <set>
+      <if test="availBalance != null">
+        AVAIL_BALANCE = #{availBalance,jdbcType=REAL},
+      </if>
+      <if test="pendingBalance != null">
+        PENDING_BALANCE = #{pendingBalance,jdbcType=REAL},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null">
+        OPEN_DATE = #{openDate,jdbcType=DATE},
+      </if>
+      <if test="lastActivityDate != null">
+        LAST_ACTIVITY_DATE = #{lastActivityDate,jdbcType=DATE},
+      </if>
+      <if test="closeDate != null">
+        CLOSE_DATE = #{closeDate,jdbcType=DATE},
+      </if>
+      <if test="customerCustId != null">
+        customer_CUST_ID = #{customerCustId,jdbcType=INTEGER},
+      </if>
+      <if test="branchBranchId != null">
+        branch_BRANCH_ID = #{branchBranchId,jdbcType=INTEGER},
+      </if>
+      <if test="employeeEmpId != null">
+        employee_EMP_ID = #{employeeEmpId,jdbcType=INTEGER},
+      </if>
+      <if test="productProductCd != null">
+        product_PRODUCT_CD = #{productProductCd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Account">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    update account
+    set AVAIL_BALANCE = #{availBalance,jdbcType=REAL},
+      PENDING_BALANCE = #{pendingBalance,jdbcType=REAL},
+      `STATUS` = #{status,jdbcType=VARCHAR},
+      OPEN_DATE = #{openDate,jdbcType=DATE},
+      LAST_ACTIVITY_DATE = #{lastActivityDate,jdbcType=DATE},
+      CLOSE_DATE = #{closeDate,jdbcType=DATE},
+      customer_CUST_ID = #{customerCustId,jdbcType=INTEGER},
+      branch_BRANCH_ID = #{branchBranchId,jdbcType=INTEGER},
+      employee_EMP_ID = #{employeeEmpId,jdbcType=INTEGER},
+      product_PRODUCT_CD = #{productProductCd,jdbcType=VARCHAR}
+    where ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByExampleWithLock" parameterType="model.AccountExample" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    for update
+  </select>
+  <select id="selectByPrimaryKeyWithLock" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!-- @mbg.generated: generated automatically, do not modify! -->
+    select 
+    <include refid="Base_Column_List" />
+    from account
+    where ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+    for update
+  </select>
+</mapper>

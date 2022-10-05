@@ -43,20 +43,26 @@ public class MySQLEmployeeDAO implements IEmployeeDAO {
     @Override
     public void insert(Employee emp) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1,emp.getID());
-            stat.setString(2,emp.getFirstName());
-            stat.setString(3,emp.getLastName());
-            stat.setDate(4, new Date(emp.getStartDate().getTime()));
-            stat.setDate(5,new Date(emp.getEndDate().getTime()));
-            stat.setString(6,emp.getTitle());
-            stat.setLong(7,emp.getAssignedBranchID());
-            stat.setLong(8, emp.getDeptID());
-            stat.setLong(9, emp.getSuperiorEmpID());
+            stat.setString(1,emp.getFirstName());
+            stat.setString(2,emp.getLastName());
+            stat.setDate(3, new Date(emp.getStartDate().getTime()));
+            stat.setDate(4,new Date(emp.getEndDate().getTime()));
+            stat.setString(5,emp.getTitle());
+            stat.setLong(6,emp.getAssignedBranchID());
+            stat.setLong(7, emp.getDeptID());
+            stat.setLong(8, emp.getSuperiorEmpID());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                emp.setID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -75,20 +81,26 @@ public class MySQLEmployeeDAO implements IEmployeeDAO {
     @Override
     public void modify(Employee emp) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1,emp.getID());
-            stat.setString(2,emp.getFirstName());
-            stat.setString(3,emp.getLastName());
-            stat.setDate(4, new Date(emp.getStartDate().getTime()));
-            stat.setDate(5,new Date(emp.getEndDate().getTime()));
-            stat.setString(6,emp.getTitle());
-            stat.setLong(7,emp.getAssignedBranchID());
-            stat.setLong(8, emp.getDeptID());
-            stat.setLong(9, emp.getSuperiorEmpID());
+            stat.setString(1,emp.getFirstName());
+            stat.setString(2,emp.getLastName());
+            stat.setDate(3, new Date(emp.getStartDate().getTime()));
+            stat.setDate(4,new Date(emp.getEndDate().getTime()));
+            stat.setString(5,emp.getTitle());
+            stat.setLong(6,emp.getAssignedBranchID());
+            stat.setLong(7, emp.getDeptID());
+            stat.setLong(8, emp.getSuperiorEmpID());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                emp.setID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -107,20 +119,26 @@ public class MySQLEmployeeDAO implements IEmployeeDAO {
     @Override
     public void delete(Employee emp) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1,emp.getID());
-            stat.setString(2,emp.getFirstName());
-            stat.setString(3,emp.getLastName());
-            stat.setDate(4, new Date(emp.getStartDate().getTime()));
-            stat.setDate(5,new Date(emp.getEndDate().getTime()));
-            stat.setString(6,emp.getTitle());
-            stat.setLong(7,emp.getAssignedBranchID());
-            stat.setLong(8, emp.getDeptID());
-            stat.setLong(9, emp.getSuperiorEmpID());
+            stat.setString(1,emp.getFirstName());
+            stat.setString(2,emp.getLastName());
+            stat.setDate(3, new Date(emp.getStartDate().getTime()));
+            stat.setDate(4,new Date(emp.getEndDate().getTime()));
+            stat.setString(5,emp.getTitle());
+            stat.setLong(6,emp.getAssignedBranchID());
+            stat.setLong(7, emp.getDeptID());
+            stat.setLong(8, emp.getSuperiorEmpID());
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                emp.setID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

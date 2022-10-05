@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public class Customer {
+public class Customer extends AbstractEntity  {
 //Fields
     private Long custID;
     private String address;

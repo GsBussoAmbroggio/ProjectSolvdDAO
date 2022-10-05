@@ -3,7 +3,7 @@ package models;
 import java.util.Date;
 import java.util.Objects;
 
-public class Officer {
+public class Officer extends AbstractEntity  {
 //Field
 private Long officerID;
 private Date startDate;

@@ -42,18 +42,25 @@ public class MySQLProductDAO implements IProductDAO {
     @Override
     public void insert(Product p) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
-            stat.setString(1, p.getProductCD());
-            stat.setDate(2, (java.sql.Date) p.getDateOffered());
-            stat.setDate(3, (java.sql.Date) p.getDateRetired());
-            stat.setString(4, p.getName());
-            stat.setString(5, p.getProductType());
+            stat.setDate(1,new java.sql.Date(p.getDateOffered().getTime()));;
+            stat.setDate(2, new java.sql.Date(p.getDateRetired().getTime()));
+            stat.setString(3, p.getName());
+            stat.setString(4, p.getProductType());
 
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
             }
+            if (rs.next()){
+                p.setProductCD(rs.getString(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
+            }
+
 
         }catch (SQLException ex){
             throw new DAOException("Error in SQL", ex);
@@ -71,16 +78,22 @@ public class MySQLProductDAO implements IProductDAO {
     @Override
     public void modify(Product p) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
-            stat.setString(1, p.getProductCD());
-            stat.setDate(2, (java.sql.Date) p.getDateOffered());
-            stat.setDate(3, (java.sql.Date) p.getDateRetired());
-            stat.setString(4, p.getName());
-            stat.setString(5, p.getProductType());
+            stat.setDate(1, (java.sql.Date) p.getDateOffered());
+            stat.setDate(2, (java.sql.Date) p.getDateRetired());
+            stat.setString(3, p.getName());
+            stat.setString(4, p.getProductType());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                p.setProductCD(rs.getString(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -99,15 +112,21 @@ public class MySQLProductDAO implements IProductDAO {
     @Override
     public void delete(Product p) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setString(1, p.getProductCD());
-            stat.setDate(2, (java.sql.Date) p.getDateOffered());
-            stat.setDate(3, (java.sql.Date) p.getDateRetired());
-            stat.setString(4, p.getName());
-            stat.setString(5, p.getProductType());
+            stat.setDate(1, (java.sql.Date) p.getDateOffered());
+            stat.setDate(2, (java.sql.Date) p.getDateRetired());
+            stat.setString(3, p.getName());
+            stat.setString(4, p.getProductType());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                p.setProductCD(rs.getString(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

@@ -12,8 +12,8 @@ import java.util.List;
 public class MySQLAccountDAO implements IAccountDAO {
 
     //--------------------------------------------------CRUD------------------------------------------------------------
-    final String INSERT = "INSERT INTO account (ACCOUNT_ID,AVAIL_BALANCE,PENDING_BALANCE,STATUS,OPEN_DATE," +
-            "LAST_ACTIVITY_DATE,CLOSE_DATE,customer_CUST_ID,branch_BRANCH_ID,employee_EMP_ID,product_PRODUCT_CD) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+    final String INSERT = "INSERT INTO account (AVAIL_BALANCE,PENDING_BALANCE,STATUS,OPEN_DATE," +
+            "LAST_ACTIVITY_DATE,CLOSE_DATE,customer_CUST_ID,branch_BRANCH_ID,employee_EMP_ID,product_PRODUCT_CD) VALUES(?,?,?,?,?,?,?,?,?,?)";
     final String UPDATE = "UPDATE account SET ACCOUNT_ID=?,AVAIL_BALANCE=?,PENDING_BALANCE=?,STATUS=?,OPEN_DATE=?" +
             ",LAST_ACTIVITY_DATE=?,CLOSE_DATE=?,customer_CUST_ID=?,branch_BRANCH_ID=?,employee_EMP_ID=?,product_PRODUCT_CD=?";
     final String DELETE = "DELETE FROM account WHERE ACCOUNT_ID=?";
@@ -41,9 +41,6 @@ public class MySQLAccountDAO implements IAccountDAO {
 
 
 
-
-
-
     }
 
     /* CONNECTION */public MySQLAccountDAO(Connection conn){
@@ -54,21 +51,28 @@ public class MySQLAccountDAO implements IAccountDAO {
     @Override
     public void insert(Account e) throws DAOException{
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
-            stat.setLong(1,e.getAccountID());
-            stat.setDouble(2,e.getAvailBalance());
-            stat.setDouble(3,e.getPendingBalance());
-            stat.setString(4,e.getStatus());
-            stat.setDate(5, new Date(e.getOpenDate().getTime()));
-            stat.setDate(6,new Date(e.getLastActivity().getTime()));
-            stat.setDate(7,new Date(e.getCloseDate().getTime()));
-            stat.setLong(8,e.getCustID());
-            stat.setLong(9,e.getBranchID());
-            stat.setLong(10,e.getEmpID());
-            stat.setString(11,e.getProductCD());
+
+            stat.setDouble(1,e.getAvailBalance());
+            stat.setDouble(2,e.getPendingBalance());
+            stat.setString(3,e.getStatus());
+            stat.setDate(4, new Date(e.getOpenDate().getTime()));
+            stat.setDate(5,new Date(e.getLastActivity().getTime()));
+            stat.setDate(6,new Date(e.getCloseDate().getTime()));
+            stat.setLong(7,e.getCustID());
+            stat.setLong(8,e.getBranchID());
+            stat.setLong(9,e.getEmpID());
+            stat.setString(10,e.getProductCD());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                e.setAccountID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -87,21 +91,27 @@ public class MySQLAccountDAO implements IAccountDAO {
     @Override
     public void modify(Account e) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
-            stat.setLong(1,e.getAccountID());
-            stat.setDouble(2,e.getAvailBalance());
-            stat.setDouble(3,e.getPendingBalance());
-            stat.setString(4,e.getStatus());
-            stat.setDate(5, new Date(e.getOpenDate().getTime()));
-            stat.setDate(6,new Date(e.getLastActivity().getTime()));
-            stat.setDate(7,new Date(e.getCloseDate().getTime()));
-            stat.setLong(8,e.getCustID());
-            stat.setLong(9,e.getBranchID());
-            stat.setLong(10,e.getEmpID());
-            stat.setString(11,e.getProductCD());
+            stat.setDouble(1,e.getAvailBalance());
+            stat.setDouble(2,e.getPendingBalance());
+            stat.setString(3,e.getStatus());
+            stat.setDate(4, new Date(e.getOpenDate().getTime()));
+            stat.setDate(5,new Date(e.getLastActivity().getTime()));
+            stat.setDate(6,new Date(e.getCloseDate().getTime()));
+            stat.setLong(7,e.getCustID());
+            stat.setLong(8,e.getBranchID());
+            stat.setLong(9,e.getEmpID());
+            stat.setString(10,e.getProductCD());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                e.setAccountID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -120,21 +130,28 @@ public class MySQLAccountDAO implements IAccountDAO {
     @Override
     public void delete(Account e) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1,e.getAccountID());
-            stat.setDouble(2,e.getAvailBalance());
-            stat.setDouble(3,e.getPendingBalance());
-            stat.setString(4,e.getStatus());
-            stat.setDate(5, new Date(e.getOpenDate().getTime()));
-            stat.setDate(6,new Date(e.getLastActivity().getTime()));
-            stat.setDate(7,new Date(e.getCloseDate().getTime()));
-            stat.setLong(8,e.getCustID());
-            stat.setLong(9,e.getBranchID());
-            stat.setLong(10,e.getEmpID());
-            stat.setString(11,e.getProductCD());
+            stat.setDouble(1,e.getAvailBalance());
+            stat.setDouble(2,e.getPendingBalance());
+            stat.setString(3,e.getStatus());
+            stat.setDate(4, new Date(e.getOpenDate().getTime()));
+            stat.setDate(5,new Date(e.getLastActivity().getTime()));
+            stat.setDate(6,new Date(e.getCloseDate().getTime()));
+            stat.setLong(7,e.getCustID());
+            stat.setLong(8,e.getBranchID());
+            stat.setLong(9,e.getEmpID());
+            stat.setString(10,e.getProductCD());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+
+            }
+            if (rs.next()){
+                e.setAccountID(rs.getLong(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

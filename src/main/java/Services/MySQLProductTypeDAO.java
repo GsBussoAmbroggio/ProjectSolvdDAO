@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MySQLProductTypeDAO implements IProductTypeDAO {
     //--------------------------------------------------CRUD------------------------------------------------------------
-    final String INSERT = "INSERT INTO product_type (PRODUCT_TYPE_CD,NAME) VALUES (?,?)";
+    final String INSERT = "INSERT INTO product_type (NAME) VALUES (?)";
     final String UPDATE = "UPDATE product_type SET PRODUCT_TYPE_CD=?,NAME=?";
     final String DELETE = "DELETE FROM product_type WHERE PRODUCT_TYPE_CD=?";
     final String GETALL = "SELECT PRODUCT_TYPE_CD,NAME FROM product_type";
@@ -40,6 +40,7 @@ public class MySQLProductTypeDAO implements IProductTypeDAO {
     @Override
     public void insert(ProductType pt) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(INSERT);
             stat = conn.prepareStatement(DELETE);
@@ -47,6 +48,12 @@ public class MySQLProductTypeDAO implements IProductTypeDAO {
             stat.setString(4, pt.getName());
              if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                pt.setProductType(rs.getString(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -64,6 +71,7 @@ public class MySQLProductTypeDAO implements IProductTypeDAO {
     @Override
     public void modify(ProductType pt) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(UPDATE);
             stat = conn.prepareStatement(DELETE);
@@ -71,6 +79,12 @@ public class MySQLProductTypeDAO implements IProductTypeDAO {
             stat.setString(4, pt.getName());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                pt.setProductType(rs.getString(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){
@@ -88,12 +102,19 @@ public class MySQLProductTypeDAO implements IProductTypeDAO {
     @Override
     public void delete(ProductType pt) throws DAOException {
         PreparedStatement stat =null;
+        ResultSet rs = null;
         try{
             stat = conn.prepareStatement(DELETE);
             stat.setString(1, pt.getProductType());
             stat.setString(4, pt.getName());
             if (stat.executeUpdate()==0){
                 throw new DAOException("-if possible that you may not have saved successfully");
+            }
+            if (rs.next()){
+                pt.setProductType(rs.getString(1));
+
+            }else{
+                throw new DAOException("could not assign an id.");
             }
 
         }catch (SQLException ex){

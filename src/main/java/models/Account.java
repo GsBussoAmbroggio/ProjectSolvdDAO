@@ -3,9 +3,7 @@ package models;
 import java.util.Date;
 import java.util.Objects;
 
-public class Account {
-//Fields
-private Long accountID;
+public class Account extends AbstractEntity{
 private Double availBalance;
 private Double pendingBalance;
 private String status;
@@ -18,8 +16,8 @@ private Long empID;
 private String productCD;
 
 //Constructors
-    public Account(Long accountID, Double availBalance, Double pendingBalance, String status, Date openDate, Date lastActivity, Date closeDate, Long custID, Long branchID, Long empID, String productCD) {
-        this.accountID = accountID;
+    public Account(Long id, Double availBalance, Double pendingBalance, String status, Date openDate, Date lastActivity, Date closeDate, Long custID, Long branchID, Long empID, String productCD) {
+        super(id);
         this.availBalance = availBalance;
         this.pendingBalance = pendingBalance;
         this.status = status;
@@ -31,22 +29,26 @@ private String productCD;
         this.empID = empID;
         this.productCD = productCD;
     }
-//HashCode-Equals & toString
+
+    public Account() {
+    }
+
+    //HashCode-Equals & toString
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
         Account account = (Account) o;
-        return Objects.equals(accountID, account.accountID) && Objects.equals(availBalance, account.availBalance) && Objects.equals(pendingBalance, account.pendingBalance) && Objects.equals(status, account.status) && Objects.equals(openDate, account.openDate) && Objects.equals(lastActivity, account.lastActivity) && Objects.equals(closeDate, account.closeDate) && Objects.equals(custID, account.custID) && Objects.equals(branchID, account.branchID) && Objects.equals(empID, account.empID) && Objects.equals(productCD, account.productCD);
+        return Objects.equals(id, account.id) && Objects.equals(availBalance, account.availBalance) && Objects.equals(pendingBalance, account.pendingBalance) && Objects.equals(status, account.status) && Objects.equals(openDate, account.openDate) && Objects.equals(lastActivity, account.lastActivity) && Objects.equals(closeDate, account.closeDate) && Objects.equals(custID, account.custID) && Objects.equals(branchID, account.branchID) && Objects.equals(empID, account.empID) && Objects.equals(productCD, account.productCD);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(accountID, availBalance, pendingBalance, status, openDate, lastActivity, closeDate, custID, branchID, empID, productCD);
+        return Objects.hash(id, availBalance, pendingBalance, status, openDate, lastActivity, closeDate, custID, branchID, empID, productCD);
     }
     @Override
     public String toString() {
         return "account{" +
-                "accountID=" + accountID +
+                "id=" + id +
                 ", availBalance=" + availBalance +
                 ", pendingBalance=" + pendingBalance +
                 ", status='" + status + '\'' +
@@ -61,12 +63,6 @@ private String productCD;
     }
 
 //Getters & Setters
-    public Long getAccountID() {
-        return accountID;
-    }
-    public void setAccountID(Long accountID) {
-        this.accountID = accountID;
-    }
     public Double getAvailBalance() {
         return availBalance;
     }

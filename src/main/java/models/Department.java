@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public class Department {
+public class Department extends AbstractEntity  {
 //Fields
     private Long ID = null;
     private String name;
